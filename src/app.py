@@ -31,9 +31,271 @@ except Exception:
 
 st.set_page_config(
     page_title="PCOS AI Screening System",
+    page_icon=None,
     layout="wide",
     initial_sidebar_state="expanded"
 )
+
+
+# ============================================================
+# PROFESSIONAL UI STYLE
+# ============================================================
+
+st.markdown("""
+<style>
+
+    /* ======================================================
+       GLOBAL
+       ====================================================== */
+
+    .stApp {
+        background: linear-gradient(
+            135deg,
+            #f8fbff 0%,
+            #eef5ff 50%,
+            #f8fbff 100%
+        );
+    }
+
+    .block-container {
+        padding-top: 2rem;
+        padding-bottom: 3rem;
+        max-width: 1400px;
+    }
+
+
+    /* ======================================================
+       MAIN HEADER
+       ====================================================== */
+
+    .main-title {
+        font-size: 42px;
+        font-weight: 800;
+        color: #16324F;
+        margin-bottom: 5px;
+    }
+
+    .subtitle {
+        font-size: 17px;
+        color: #667085;
+        margin-bottom: 20px;
+    }
+
+
+    /* ======================================================
+       SECTION TITLES
+       ====================================================== */
+
+    .section-title {
+        font-size: 25px;
+        font-weight: 700;
+        color: #16324F;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+
+    /* ======================================================
+       KPI CARDS
+       ====================================================== */
+
+    .metric-card {
+        background: white;
+        padding: 22px;
+        border-radius: 18px;
+        border: 1px solid #e4eaf2;
+        box-shadow: 0 6px 20px rgba(22, 50, 79, 0.08);
+        min-height: 120px;
+    }
+
+    .metric-title {
+        color: #667085;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+    }
+
+    .metric-value {
+        color: #16324F;
+        font-size: 25px;
+        font-weight: 800;
+        margin-top: 8px;
+    }
+
+    .metric-description {
+        color: #667085;
+        font-size: 13px;
+        margin-top: 8px;
+    }
+
+
+    /* ======================================================
+       AI CARDS
+       ====================================================== */
+
+    .ai-card {
+        background: white;
+        border-radius: 20px;
+        padding: 25px;
+        border: 1px solid #e5eaf1;
+        box-shadow: 0 8px 25px rgba(22, 50, 79, 0.08);
+        min-height: 260px;
+    }
+
+    .ai-card h3 {
+        color: #16324F;
+        margin-bottom: 15px;
+        font-size: 22px;
+    }
+
+    .ai-card p {
+        color: #667085;
+        line-height: 1.7;
+        font-size: 15px;
+    }
+
+
+    /* ======================================================
+       PROCESS CARDS
+       ====================================================== */
+
+    .process-card {
+        background: white;
+        border-radius: 16px;
+        padding: 20px;
+        border: 1px solid #e4eaf2;
+        box-shadow: 0 5px 18px rgba(22, 50, 79, 0.06);
+        min-height: 150px;
+    }
+
+    .process-number {
+        font-size: 12px;
+        font-weight: 700;
+        color: #667085;
+        letter-spacing: 1px;
+    }
+
+    .process-title {
+        font-size: 19px;
+        font-weight: 700;
+        color: #16324F;
+        margin-top: 8px;
+    }
+
+    .process-text {
+        font-size: 13px;
+        color: #667085;
+        margin-top: 8px;
+        line-height: 1.5;
+    }
+
+
+    /* ======================================================
+       SIDEBAR
+       ====================================================== */
+
+    section[data-testid="stSidebar"] {
+        background: linear-gradient(
+            180deg,
+            #102A43 0%,
+            #16324F 100%
+        );
+    }
+
+    section[data-testid="stSidebar"] * {
+        color: white !important;
+    }
+
+
+    /* ======================================================
+       BUTTONS
+       ====================================================== */
+
+    .stButton > button {
+        border-radius: 12px;
+        font-weight: 700;
+        border: none;
+        padding: 10px 20px;
+    }
+
+
+    /* ======================================================
+       FILE UPLOADER
+       ====================================================== */
+
+    [data-testid="stFileUploader"] {
+        background: white;
+        border-radius: 16px;
+        padding: 10px;
+        border: 1px solid #dce4ee;
+    }
+
+
+    /* ======================================================
+       DATAFRAMES
+       ====================================================== */
+
+    [data-testid="stDataFrame"] {
+        border-radius: 14px;
+        overflow: hidden;
+    }
+
+
+    /* ======================================================
+       RESULT CARD
+       ====================================================== */
+
+    .result-card {
+        background: white;
+        border-radius: 18px;
+        padding: 24px;
+        border: 1px solid #e4eaf2;
+        box-shadow: 0 6px 20px rgba(22, 50, 79, 0.08);
+        text-align: center;
+    }
+
+    .result-title {
+        color: #667085;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .result-value {
+        color: #16324F;
+        font-size: 30px;
+        font-weight: 800;
+        margin-top: 8px;
+    }
+
+
+    /* ======================================================
+       DISCLAIMER
+       ====================================================== */
+
+    .disclaimer {
+        background: #fff8e6;
+        border-left: 5px solid #f59e0b;
+        padding: 16px;
+        border-radius: 10px;
+        color: #7a5a00;
+        margin-top: 20px;
+    }
+
+
+    /* ======================================================
+       FOOTER
+       ====================================================== */
+
+    .footer {
+        text-align: center;
+        color: #667085;
+        font-size: 13px;
+        padding: 25px;
+        margin-top: 30px;
+    }
+
+</style>
+""", unsafe_allow_html=True)
 
 
 # ============================================================
@@ -96,7 +358,7 @@ def load_ml_info():
 
 
 # ============================================================
-# LOAD DATASET FOR DEFAULT VALUES
+# LOAD DATASET
 # ============================================================
 
 @st.cache_data
@@ -106,6 +368,7 @@ def load_dataset():
         return None
 
     try:
+
         df = pd.read_csv(CSV_PATH)
 
         df.columns = (
@@ -134,10 +397,13 @@ def load_cnn_model():
         return None
 
     try:
+
         return tf.keras.models.load_model(
             CNN_MODEL_PATH
         )
+
     except Exception:
+
         return None
 
 
@@ -202,7 +468,6 @@ st.sidebar.write(
 
 st.sidebar.divider()
 
-
 page = st.sidebar.radio(
     "Navigation",
     [
@@ -215,28 +480,37 @@ page = st.sidebar.radio(
     ]
 )
 
-
-# ============================================================
-# SYSTEM STATUS
-# ============================================================
-
 st.sidebar.divider()
 
 st.sidebar.subheader("System Status")
 
 
 if ml_model is not None:
-    st.sidebar.success("ML Model Loaded")
+
+    st.sidebar.success(
+        "ML Model Loaded"
+    )
+
 else:
-    st.sidebar.error("ML Model Missing")
+
+    st.sidebar.error(
+        "ML Model Missing"
+    )
 
 
 if TF_AVAILABLE:
 
     if cnn_model is not None:
-        st.sidebar.success("CNN Model Loaded")
+
+        st.sidebar.success(
+            "CNN Model Loaded"
+        )
+
     else:
-        st.sidebar.warning("CNN Model Missing")
+
+        st.sidebar.warning(
+            "CNN Model Missing"
+        )
 
 else:
 
@@ -251,7 +525,6 @@ if TF_AVAILABLE:
         f"TensorFlow: {tf.__version__}"
     )
 
-
 st.sidebar.caption(
     "ML: Random Forest"
 )
@@ -265,12 +538,19 @@ st.sidebar.caption(
 # MAIN HEADER
 # ============================================================
 
-st.title(
-    "PCOS AI Screening & Analysis System"
+st.markdown(
+    '<div class="main-title">'
+    'PCOS AI Screening & Analysis'
+    '</div>',
+    unsafe_allow_html=True
 )
 
-st.caption(
-    "Machine Learning + Deep Learning + Streamlit"
+st.markdown(
+    '<div class="subtitle">'
+    'AI-powered PCOS risk assessment using Machine Learning '
+    'and ultrasound image analysis using Deep Learning'
+    '</div>',
+    unsafe_allow_html=True
 )
 
 st.divider()
@@ -282,127 +562,287 @@ st.divider()
 
 if page == "Dashboard":
 
-    st.header(
-        "AI Screening Dashboard"
+    st.markdown(
+        '<div class="section-title">'
+        'AI Screening Dashboard'
+        '</div>',
+        unsafe_allow_html=True
     )
 
     st.write(
         """
-        This project uses **two AI approaches**:
-
-        **Machine Learning**
-        → Clinical, physical and symptom-related information
-
-        **Deep Learning**
-        → Ultrasound image analysis
+        This system demonstrates a two-component artificial
+        intelligence workflow for PCOS screening research.
+        The first component analyses structured patient
+        information using Machine Learning, while the second
+        component analyses ultrasound images using Deep Learning.
         """
     )
 
     st.divider()
 
-    # --------------------------------------------------------
-    # PROJECT KPIs
-    # --------------------------------------------------------
+    # ========================================================
+    # KPI CARDS
+    # ========================================================
 
     col1, col2, col3, col4 = st.columns(4)
 
     with col1:
 
-        st.metric(
-            "ML Algorithm",
-            "Random Forest"
-        )
+        st.markdown("""
+        <div class="metric-card">
+
+        <div class="metric-title">
+        MACHINE LEARNING
+        </div>
+
+        <div class="metric-value">
+        Random Forest
+        </div>
+
+        <div class="metric-description">
+        Structured data classification
+        </div>
+
+        </div>
+        """, unsafe_allow_html=True)
 
     with col2:
 
-        st.metric(
-            "DL Algorithm",
-            "CNN"
-        )
+        st.markdown("""
+        <div class="metric-card">
+
+        <div class="metric-title">
+        DEEP LEARNING
+        </div>
+
+        <div class="metric-value">
+        CNN
+        </div>
+
+        <div class="metric-description">
+        Ultrasound image classification
+        </div>
+
+        </div>
+        """, unsafe_allow_html=True)
 
     with col3:
 
-        st.metric(
-            "ML Features",
-            str(len(ml_features))
-        )
+        st.markdown(f"""
+        <div class="metric-card">
+
+        <div class="metric-title">
+        ML FEATURES
+        </div>
+
+        <div class="metric-value">
+        {len(ml_features)}
+        </div>
+
+        <div class="metric-description">
+        Patient-related features
+        </div>
+
+        </div>
+        """, unsafe_allow_html=True)
 
     with col4:
 
-        st.metric(
-            "Ultrasound Input",
-            "160 × 160"
-        )
+        st.markdown("""
+        <div class="metric-card">
+
+        <div class="metric-title">
+        IMAGE INPUT
+        </div>
+
+        <div class="metric-value">
+        160 × 160
+        </div>
+
+        <div class="metric-description">
+        CNN image resolution
+        </div>
+
+        </div>
+        """, unsafe_allow_html=True)
 
     st.divider()
 
-    # --------------------------------------------------------
-    # TWO AI COMPONENTS
-    # --------------------------------------------------------
+    # ========================================================
+    # AI MODULES
+    # ========================================================
 
-    st.subheader(
-        "What does this system analyse?"
+    st.markdown(
+        '<div class="section-title">'
+        'AI Analysis Modules'
+        '</div>',
+        unsafe_allow_html=True
     )
 
     col1, col2 = st.columns(2)
 
     with col1:
 
-        st.info(
-            """
-            ### Machine Learning
+        st.markdown("""
+        <div class="ai-card">
 
-            **Input**
+        <h3>Machine Learning</h3>
 
-            Clinical and symptom-related data
+        <p>
+        <b>Input:</b> Clinical, physical and symptom-related
+        information.
+        </p>
 
-            **Algorithm**
+        <p>
+        <b>Algorithm:</b> Random Forest Classifier.
+        </p>
 
-            Random Forest Classifier
+        <p>
+        <b>Analysis:</b> Estimates PCOS probability using
+        structured patient information.
+        </p>
 
-            **Analysis**
+        <p>
+        <b>Output:</b> PCOS probability and risk category.
+        </p>
 
-            PCOS risk based on structured
-            patient information
-
-            **Output**
-
-            PCOS probability + risk category
-            """
-        )
+        </div>
+        """, unsafe_allow_html=True)
 
     with col2:
 
-        st.info(
-            """
-            ### Deep Learning
+        st.markdown("""
+        <div class="ai-card">
 
-            **Input**
+        <h3>Deep Learning</h3>
 
-            Ultrasound image
+        <p>
+        <b>Input:</b> Ultrasound image.
+        </p>
 
-            **Algorithm**
+        <p>
+        <b>Algorithm:</b> Convolutional Neural Network.
+        </p>
 
-            Convolutional Neural Network
+        <p>
+        <b>Analysis:</b> Learns visual patterns from ultrasound
+        images.
+        </p>
 
-            **Analysis**
+        <p>
+        <b>Output:</b> Infected / Non-Infected probability.
+        </p>
 
-            Visual patterns in ultrasound image
-
-            **Output**
-
-            Infected / Non-infected probability
-            """
-        )
+        </div>
+        """, unsafe_allow_html=True)
 
     st.divider()
 
-    # --------------------------------------------------------
-    # PERFORMANCE
-    # --------------------------------------------------------
+    # ========================================================
+    # WORKFLOW
+    # ========================================================
 
-    st.subheader(
-        "ML Model Performance"
+    st.markdown(
+        '<div class="section-title">'
+        'System Workflow'
+        '</div>',
+        unsafe_allow_html=True
+    )
+
+    step1, step2, step3, step4 = st.columns(4)
+
+    with step1:
+
+        st.markdown("""
+        <div class="process-card">
+
+        <div class="process-number">
+        STEP 01
+        </div>
+
+        <div class="process-title">
+        Patient Data
+        </div>
+
+        <div class="process-text">
+        Clinical and symptom-related information
+        </div>
+
+        </div>
+        """, unsafe_allow_html=True)
+
+    with step2:
+
+        st.markdown("""
+        <div class="process-card">
+
+        <div class="process-number">
+        STEP 02
+        </div>
+
+        <div class="process-title">
+        ML Analysis
+        </div>
+
+        <div class="process-text">
+        Random Forest estimates PCOS probability
+        </div>
+
+        </div>
+        """, unsafe_allow_html=True)
+
+    with step3:
+
+        st.markdown("""
+        <div class="process-card">
+
+        <div class="process-number">
+        STEP 03
+        </div>
+
+        <div class="process-title">
+        CNN Analysis
+        </div>
+
+        <div class="process-text">
+        Ultrasound image classification
+        </div>
+
+        </div>
+        """, unsafe_allow_html=True)
+
+    with step4:
+
+        st.markdown("""
+        <div class="process-card">
+
+        <div class="process-number">
+        STEP 04
+        </div>
+
+        <div class="process-title">
+        AI Summary
+        </div>
+
+        <div class="process-text">
+        Separate ML and DL results for interpretation
+        </div>
+
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.divider()
+
+    # ========================================================
+    # MODEL PERFORMANCE
+    # ========================================================
+
+    st.markdown(
+        '<div class="section-title">'
+        'ML Model Performance'
+        '</div>',
+        unsafe_allow_html=True
     )
 
     if ml_info:
@@ -419,7 +859,7 @@ if page == "Dashboard":
             if accuracy is not None:
 
                 st.metric(
-                    "ML Accuracy",
+                    "Accuracy",
                     f"{accuracy * 100:.2f}%"
                 )
 
@@ -447,53 +887,20 @@ if page == "Dashboard":
             if rows is not None:
 
                 st.metric(
-                    "Training Dataset",
+                    "Dataset Records",
                     str(rows)
                 )
 
     else:
 
         st.info(
-            "ML model information is not available."
+            "ML model performance information is not available."
         )
 
     st.divider()
 
-    # --------------------------------------------------------
-    # PIPELINE
-    # --------------------------------------------------------
-
-    st.subheader(
-        "Complete AI Pipeline"
-    )
-
-    p1, p2, p3, p4 = st.columns(4)
-
-    with p1:
-
-        st.write("### Step 1")
-        st.write("Patient Data")
-
-    with p2:
-
-        st.write("### Step 2")
-        st.write("ML Risk")
-
-    with p3:
-
-        st.write("### Step 3")
-        st.write("Ultrasound CNN")
-
-    with p4:
-
-        st.write("### Step 4")
-        st.write("AI Summary")
-
-    st.divider()
-
     st.success(
-        "Use the sidebar to perform ML risk assessment "
-        "or ultrasound deep-learning analysis."
+        "Select a module from the navigation panel to begin analysis."
     )
 
 
@@ -503,14 +910,17 @@ if page == "Dashboard":
 
 elif page == "ML Risk Assessment":
 
-    st.header(
-        "Machine Learning — PCOS Risk Assessment"
+    st.markdown(
+        '<div class="section-title">'
+        'Machine Learning — PCOS Risk Assessment'
+        '</div>',
+        unsafe_allow_html=True
     )
 
     st.write(
         """
         Enter patient-related clinical and symptom information.
-        The trained **Random Forest model** will estimate the
+        The trained Random Forest model will estimate the
         probability of PCOS.
         """
     )
@@ -539,16 +949,11 @@ elif page == "ML Risk Assessment":
 
     st.info(
         """
-        The model was trained using the same feature list
-        saved during ML training. Default values are taken
-        from the project dataset; change them according to
-        the patient information before prediction.
+        The model uses the same feature list saved during
+        training. Default values are derived from the project
+        dataset and can be changed before prediction.
         """
     )
-
-    # --------------------------------------------------------
-    # CREATE INPUT FORM
-    # --------------------------------------------------------
 
     with st.form(
         "ml_prediction_form"
@@ -559,10 +964,6 @@ elif page == "ML Risk Assessment":
         )
 
         input_values = {}
-
-        # ----------------------------------------------------
-        # GROUP FEATURES
-        # ----------------------------------------------------
 
         yes_no_features = [
             "Pregnant(Y/N)",
@@ -577,10 +978,6 @@ elif page == "ML Risk Assessment":
 
         cycle_feature = "Cycle(R/I)"
 
-        # ----------------------------------------------------
-        # GET DATASET DEFAULTS
-        # ----------------------------------------------------
-
         numeric_defaults = {}
 
         if dataset is not None:
@@ -592,8 +989,6 @@ elif page == "ML Risk Assessment":
                 .astype(str)
                 .str.strip()
             )
-
-            # Same cleaning approach as training
 
             for column in yes_no_features:
 
@@ -648,10 +1043,6 @@ elif page == "ML Risk Assessment":
                             converted.median()
                         )
 
-        # ----------------------------------------------------
-        # DISPLAY INPUTS
-        # ----------------------------------------------------
-
         for index, feature in enumerate(
             ml_features
         ):
@@ -662,10 +1053,6 @@ elif page == "ML Risk Assessment":
             )
 
             label = feature
-
-            # -----------------------------------------------
-            # YES / NO
-            # -----------------------------------------------
 
             if feature in yes_no_features:
 
@@ -681,10 +1068,6 @@ elif page == "ML Risk Assessment":
                 input_values[feature] = (
                     1 if value else 0
                 )
-
-            # -----------------------------------------------
-            # CYCLE
-            # -----------------------------------------------
 
             elif feature == cycle_feature:
 
@@ -710,10 +1093,6 @@ elif page == "ML Risk Assessment":
                     else 0
                 )
 
-            # -----------------------------------------------
-            # NUMERIC
-            # -----------------------------------------------
-
             else:
 
                 value = st.number_input(
@@ -730,10 +1109,6 @@ elif page == "ML Risk Assessment":
             "Calculate PCOS Risk",
             use_container_width=True
         )
-
-    # --------------------------------------------------------
-    # PREDICTION
-    # --------------------------------------------------------
 
     if submitted:
 
@@ -756,8 +1131,6 @@ elif page == "ML Risk Assessment":
                 probability
             )
 
-            # Save result
-
             st.session_state.ml_result = {
                 "prediction": int(prediction),
                 "probability": probability
@@ -765,8 +1138,11 @@ elif page == "ML Risk Assessment":
 
             st.divider()
 
-            st.subheader(
-                "ML Prediction Result"
+            st.markdown(
+                '<div class="section-title">'
+                'Prediction Overview'
+                '</div>',
+                unsafe_allow_html=True
             )
 
             col1, col2, col3 = st.columns(3)
@@ -803,10 +1179,6 @@ elif page == "ML Risk Assessment":
 
             st.divider()
 
-            # ------------------------------------------------
-            # RESULT
-            # ------------------------------------------------
-
             if prediction == 1:
 
                 st.error(
@@ -816,8 +1188,8 @@ elif page == "ML Risk Assessment":
                 st.warning(
                     f"""
                     The Random Forest model estimated a
-                    **{probability * 100:.2f}% probability**
-                    for the positive PCOS class.
+                    {probability * 100:.2f}% probability for
+                    the positive PCOS class.
                     """
                 )
 
@@ -830,14 +1202,10 @@ elif page == "ML Risk Assessment":
                 st.success(
                     f"""
                     The Random Forest model estimated a
-                    **{probability * 100:.2f}% probability**
-                    for the positive PCOS class.
+                    {probability * 100:.2f}% probability for
+                    the positive PCOS class.
                     """
                 )
-
-            # ------------------------------------------------
-            # PROBABILITY BAR
-            # ------------------------------------------------
 
             st.subheader(
                 "Risk Probability"
@@ -848,15 +1216,11 @@ elif page == "ML Risk Assessment":
             )
 
             st.caption(
-                "0% = lower model probability | "
-                "100% = higher model probability"
+                "0% represents lower model probability and "
+                "100% represents higher model probability."
             )
 
             st.divider()
-
-            # ------------------------------------------------
-            # INPUT SUMMARY
-            # ------------------------------------------------
 
             st.subheader(
                 "Input Data Used by ML Model"
@@ -890,8 +1254,11 @@ elif page == "ML Risk Assessment":
 
 elif page == "Ultrasound DL Analysis":
 
-    st.header(
-        "Deep Learning — Ultrasound Analysis"
+    st.markdown(
+        '<div class="section-title">'
+        'Deep Learning — Ultrasound Analysis'
+        '</div>',
+        unsafe_allow_html=True
     )
 
     st.write(
@@ -909,7 +1276,6 @@ elif page == "Ultrasound DL Analysis":
         )
 
         st.info(
-            "The ML section can still be used. "
             "Run this dashboard with the project virtual environment "
             "that contains TensorFlow."
         )
@@ -929,6 +1295,13 @@ elif page == "Ultrasound DL Analysis":
         st.stop()
 
     st.divider()
+
+    st.info(
+        """
+        Upload a clear ultrasound image. The CNN resizes the
+        image to 160 × 160 pixels before prediction.
+        """
+    )
 
     uploaded_file = st.file_uploader(
         "Upload Ultrasound Image",
@@ -961,10 +1334,6 @@ elif page == "Ultrasound DL Analysis":
 
             st.stop()
 
-        # ----------------------------------------------------
-        # IMAGE DISPLAY
-        # ----------------------------------------------------
-
         col1, col2 = st.columns(
             [1, 1]
         )
@@ -989,10 +1358,6 @@ elif page == "Ultrasound DL Analysis":
                 f"{image.width} × {image.height}"
             )
 
-        # ----------------------------------------------------
-        # PREPROCESS
-        # ----------------------------------------------------
-
         resized_image = image.resize(
             (160, 160)
         )
@@ -1007,14 +1372,6 @@ elif page == "Ultrasound DL Analysis":
             axis=0
         )
 
-        # IMPORTANT:
-        # CNN already contains Rescaling(1/255)
-        # so do NOT divide image_array by 255 here.
-
-        # ----------------------------------------------------
-        # CNN PREDICTION
-        # ----------------------------------------------------
-
         with st.spinner(
             "CNN is analysing the ultrasound..."
         ):
@@ -1028,12 +1385,12 @@ elif page == "Ultrasound DL Analysis":
             raw_prediction
         )
 
-        # Your trained class mapping:
-        #
+        # ====================================================
+        # CLASS MAPPING
         # class 0 = infected
         # class 1 = noninfected
-        #
-        # sigmoid output = probability of class 1
+        # sigmoid = probability of class 1
+        # ====================================================
 
         infected_probability = (
             1.0 - raw_prediction
@@ -1059,8 +1416,6 @@ elif page == "Ultrasound DL Analysis":
                 infected_probability
             )
 
-        # Save result
-
         st.session_state.cnn_result = {
             "prediction": final_prediction,
             "infected_probability":
@@ -1072,10 +1427,6 @@ elif page == "Ultrasound DL Analysis":
                 raw_prediction
         }
 
-        # ----------------------------------------------------
-        # RESULT
-        # ----------------------------------------------------
-
         with col2:
 
             st.subheader(
@@ -1085,13 +1436,13 @@ elif page == "Ultrasound DL Analysis":
             if final_prediction == "INFECTED":
 
                 st.error(
-                    "INFECTED"
+                    "Prediction: INFECTED"
                 )
 
             else:
 
                 st.success(
-                    "NON-INFECTED"
+                    "Prediction: NON-INFECTED"
                 )
 
             st.metric(
@@ -1104,10 +1455,6 @@ elif page == "Ultrasound DL Analysis":
             )
 
         st.divider()
-
-        # ----------------------------------------------------
-        # PROBABILITIES
-        # ----------------------------------------------------
 
         st.subheader(
             "CNN Probability Analysis"
@@ -1138,10 +1485,6 @@ elif page == "Ultrasound DL Analysis":
 
         st.divider()
 
-        # ----------------------------------------------------
-        # PROGRESS
-        # ----------------------------------------------------
-
         st.subheader(
             "Probability Distribution"
         )
@@ -1166,10 +1509,6 @@ elif page == "Ultrasound DL Analysis":
 
         st.divider()
 
-        # ----------------------------------------------------
-        # BAR CHART
-        # ----------------------------------------------------
-
         chart_df = pd.DataFrame(
             {
                 "Probability (%)": [
@@ -1192,10 +1531,6 @@ elif page == "Ultrasound DL Analysis":
         )
 
         st.divider()
-
-        # ----------------------------------------------------
-        # TECHNICAL ANALYSIS
-        # ----------------------------------------------------
 
         st.subheader(
             "Technical Analysis"
@@ -1234,42 +1569,41 @@ elif page == "Ultrasound DL Analysis":
 
         st.divider()
 
-        # ----------------------------------------------------
-        # EXPLANATION
-        # ----------------------------------------------------
-
         st.subheader(
-            "What did the CNN analyse?"
+            "CNN Interpretation"
         )
 
         st.info(
             f"""
             The CNN produced a sigmoid output of
-            **{raw_prediction:.4f}**.
+            {raw_prediction:.4f}.
 
-            Because class 0 is **infected** and class 1 is
-            **noninfected**, the system calculates:
+            Class 0 represents infected and class 1 represents
+            noninfected.
 
-            **Infected probability:**
+            Infected probability:
             {(1 - raw_prediction) * 100:.2f}%
 
-            **Non-infected probability:**
+            Non-Infected probability:
             {raw_prediction * 100:.2f}%
 
-            The class with the higher probability becomes
-            the displayed prediction.
+            The class with the higher probability is displayed
+            as the final prediction.
             """
         )
 
-        st.warning(
-            """
-            Academic project only.
+        st.markdown("""
+        <div class="disclaimer">
 
-            This ultrasound prediction is not a medical
-            diagnosis and should not replace professional
-            clinical evaluation.
-            """
-        )
+        <b>Academic Disclaimer</b><br><br>
+
+        This ultrasound prediction is intended for academic
+        and educational demonstration only. It is not a medical
+        diagnosis and should not replace professional clinical
+        evaluation.
+
+        </div>
+        """, unsafe_allow_html=True)
 
 
 # ============================================================
@@ -1278,23 +1612,25 @@ elif page == "Ultrasound DL Analysis":
 
 elif page == "AI Summary":
 
-    st.header(
-        "Multi-Modal AI Summary"
+    st.markdown(
+        '<div class="section-title">'
+        'Multi-Modal AI Summary'
+        '</div>',
+        unsafe_allow_html=True
     )
 
     st.write(
         """
-        This page brings the outputs of both components
-        together so you can understand what the project
-        analyses.
+        This page presents the outputs of the Machine Learning
+        and Deep Learning components separately.
         """
     )
 
     st.divider()
 
-    # --------------------------------------------------------
+    # ========================================================
     # ML RESULT
-    # --------------------------------------------------------
+    # ========================================================
 
     st.subheader(
         "Machine Learning Result"
@@ -1339,9 +1675,9 @@ elif page == "AI Summary":
 
     st.divider()
 
-    # --------------------------------------------------------
+    # ========================================================
     # DL RESULT
-    # --------------------------------------------------------
+    # ========================================================
 
     st.subheader(
         "Deep Learning Result"
@@ -1399,29 +1735,49 @@ elif page == "AI Summary":
 
     st.divider()
 
-    # --------------------------------------------------------
-    # INTERPRETATION
-    # --------------------------------------------------------
-
     st.subheader(
-        "How to interpret the two AI components"
+        "Interpretation of AI Components"
     )
 
-    st.write(
-        """
-        **ML component**
+    col1, col2 = st.columns(2)
 
-        Uses structured patient information such as
-        clinical and symptom-related features to estimate
+    with col1:
+
+        st.markdown("""
+        <div class="ai-card">
+
+        <h3>Machine Learning</h3>
+
+        <p>
+        Uses structured patient information such as clinical,
+        physical and symptom-related features to estimate
         PCOS probability.
+        </p>
 
-        **DL component**
+        </div>
+        """, unsafe_allow_html=True)
 
-        Uses an ultrasound image and a CNN to classify
-        the image into the trained ultrasound classes.
+    with col2:
 
-        These are two separate model outputs and should
-        not be treated as a single medical diagnosis.
+        st.markdown("""
+        <div class="ai-card">
+
+        <h3>Deep Learning</h3>
+
+        <p>
+        Uses an ultrasound image and a CNN to classify the image
+        into the trained ultrasound classes.
+        </p>
+
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.warning(
+        """
+        Important: The ML and CNN models analyse different
+        types of information. Their outputs are presented
+        separately and are not mathematically combined into
+        one diagnostic score.
         """
     )
 
@@ -1433,10 +1789,8 @@ elif page == "AI Summary":
         st.success(
             """
             Both ML and DL analyses have been completed.
-
-            You can use this page during your project
-            demonstration to explain how the two AI
-            components work together.
+            The results can be reviewed independently in this
+            summary section.
             """
         )
 
@@ -1447,13 +1801,16 @@ elif page == "AI Summary":
 
 elif page == "Model Information":
 
-    st.header(
-        "AI Model Information"
+    st.markdown(
+        '<div class="section-title">'
+        'AI Model Information'
+        '</div>',
+        unsafe_allow_html=True
     )
 
-    # --------------------------------------------------------
-    # ML
-    # --------------------------------------------------------
+    # ========================================================
+    # ML MODEL
+    # ========================================================
 
     st.subheader(
         "Machine Learning Model"
@@ -1514,9 +1871,9 @@ elif page == "Model Information":
 
     st.divider()
 
-    # --------------------------------------------------------
-    # DL
-    # --------------------------------------------------------
+    # ========================================================
+    # DL MODEL
+    # ========================================================
 
     st.subheader(
         "Deep Learning Model"
@@ -1617,7 +1974,7 @@ elif page == "Model Information":
     st.divider()
 
     st.subheader(
-        "Project Models"
+        "Project Model Files"
     )
 
     files_df = pd.DataFrame(
@@ -1652,8 +2009,11 @@ elif page == "Model Information":
 
 elif page == "About":
 
-    st.header(
-        "About the Project"
+    st.markdown(
+        '<div class="section-title">'
+        'About the Project'
+        '</div>',
+        unsafe_allow_html=True
     )
 
     st.subheader(
@@ -1662,9 +2022,8 @@ elif page == "About":
 
     st.write(
         """
-        **AI-Based PCOS Risk Assessment and
-        Ultrasound Image Analysis Using Machine
-        Learning and Deep Learning**
+        AI-Based PCOS Risk Assessment and Ultrasound Image
+        Analysis Using Machine Learning and Deep Learning
         """
     )
 
@@ -1676,9 +2035,9 @@ elif page == "About":
 
     st.write(
         """
-        The objective of this project is to demonstrate
-        an AI-based PCOS screening workflow using two
-        complementary approaches:
+        The objective of this project is to demonstrate an
+        AI-based PCOS screening workflow using two complementary
+        approaches:
 
         1. Machine Learning for structured patient data.
         2. Deep Learning for ultrasound image analysis.
@@ -1694,9 +2053,8 @@ elif page == "About":
     st.write(
         """
         The ML component uses a Random Forest classifier.
-        The training pipeline performs data cleaning,
-        numerical conversion, median imputation and
-        classification.
+        The training pipeline performs data cleaning, numerical
+        conversion, median imputation and classification.
         """
     )
 
@@ -1708,9 +2066,46 @@ elif page == "About":
 
     st.write(
         """
-        The DL component uses a Convolutional Neural
-        Network to classify ultrasound images.
+        The DL component uses a Convolutional Neural Network
+        to classify ultrasound images.
         """
+    )
+
+    st.divider()
+
+    st.subheader(
+        "System Architecture"
+    )
+
+    architecture_flow = pd.DataFrame(
+        {
+            "Stage": [
+                "Patient Data",
+                "ML Preprocessing",
+                "Random Forest",
+                "PCOS Risk",
+                "Ultrasound Image",
+                "Image Preprocessing",
+                "CNN",
+                "Image Classification"
+            ],
+            "Component": [
+                "Structured Dataset",
+                "Cleaning + Encoding + Imputation",
+                "Machine Learning",
+                "Probability + Risk Category",
+                "JPG / PNG",
+                "Resize 160 × 160",
+                "Deep Learning",
+                "Infected / Non-Infected"
+            ]
+        }
+    )
+
+    st.dataframe(
+        architecture_flow,
+        use_container_width=True,
+        hide_index=True
     )
 
     st.divider()
@@ -1752,15 +2147,17 @@ elif page == "About":
         hide_index=True
     )
 
-    st.warning(
-        """
-        Academic Disclaimer
+    st.markdown("""
+    <div class="disclaimer">
 
-        This project is intended for educational and
-        academic purposes. Model predictions should not
-        be considered a medical diagnosis.
-        """
-    )
+    <b>Academic Disclaimer</b><br><br>
+
+    This project is intended for educational and academic
+    purposes. Model predictions should not be considered
+    a medical diagnosis.
+
+    </div>
+    """, unsafe_allow_html=True)
 
 
 # ============================================================
@@ -1769,6 +2166,16 @@ elif page == "About":
 
 st.divider()
 
-st.caption(
-    "PCOS AI Screening System • ML + DL Capstone Project"
-)
+st.markdown("""
+<div class="footer">
+
+<b>PCOS AI Screening & Analysis System</b><br>
+
+Machine Learning • Deep Learning • Computer Vision • Streamlit
+
+<br><br>
+
+Academic Capstone Project | Educational Purpose Only
+
+</div>
+""", unsafe_allow_html=True)
